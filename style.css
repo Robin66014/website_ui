@@ -1,0 +1,1234 @@
+/* ==========================================================
+   Senioren Actief Zaltbommel - style.css (ontwerp 2)
+   Stijl: "Accessible & Ethical", kleuren uit het logo.
+   Kleuren, lettergroottes en ruimtes staan bovenaan bij :root.
+   Pas daar iets aan, dan verandert het op de hele site.
+   ========================================================== */
+
+/* ---------- Lettertype ----------
+   Atkinson Hyperlegible Next: gemaakt voor mensen die slecht zien.
+   Zelf gehost in fonts/ (vrije licentie, zie fonts/OFL.txt).
+   ---------------------------------- */
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atkinson Hyperlegible Next";
+  src: url("fonts/atkinson-hyperlegible-next-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Kleuren uit het logo */
+  --kleur-tekst: #0f2350;          /* gewone tekst (15:1 op wit) */
+  --kleur-tekst-zacht: #34466f;    /* bijschriften (9:1 op wit) */
+  --kleur-primair: #1e54b4;        /* blauwe banden, iconen, randen */
+  --kleur-primair-donker: #003ea0; /* koppen en links */
+  --kleur-op-primair: #ffffff;
+  --kleur-cta: #fc5547;            /* alleen de belknop (koraal uit het logo) */
+  --kleur-cta-hover: #ff7a6b;
+  --kleur-op-cta: #0f2350;
+  --kleur-achtergrond: #f4f9ff;    /* achtergrond van de pagina */
+  --kleur-vlak: #ffffff;           /* kaarten */
+  --kleur-zacht: #e3f0fd;          /* kop van de pagina, iconrondjes */
+  --kleur-rand: #a9c8ea;           /* rand van kaarten */
+  --kleur-let-op: #a3271a;         /* geen les, labels */
+  --kleur-let-op-zacht: #fdecea;
+  --kleur-voet: #12357f;           /* voettekst */
+  --kleur-focus: #0f2350;
+
+  /* Lettergroottes (1rem = 16px) */
+  --tekst: 1.25rem;         /* 20px */
+  --tekst-groot: 1.375rem;  /* 22px */
+  --tekst-klein: 1.125rem;  /* 18px */
+  --kop-1: clamp(2.5rem, 1.75rem + 3.2vw, 4rem);
+  --kop-2: clamp(1.875rem, 1.5rem + 1.6vw, 2.625rem);
+  --kop-3: 1.625rem;
+
+  /* Ruimtes (8-punts schaal) */
+  --ruimte-xs: 0.25rem;
+  --ruimte-s: 0.5rem;
+  --ruimte-m: 1.5rem;
+  --ruimte-l: 2rem;
+  --ruimte-xl: 3rem;
+  --ruimte-2xl: 4rem;
+
+  /* Rondingen */
+  --rond-s: 0.625rem;
+  --rond-m: 1rem;
+  --rond-l: 1.5rem;
+
+  /* Breedtes */
+  --breedte-tekst: 42rem;
+  --breedte: 72rem;
+
+  --font: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", Verdana, Tahoma, system-ui, sans-serif;
+}
+
+/* ---------- Basis ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--kleur-achtergrond);
+  color: var(--kleur-tekst);
+  font-family: var(--font);
+  font-size: var(--tekst);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 var(--ruimte-s);
+  color: var(--kleur-primair-donker);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--kop-1);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--kop-2);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--kop-3);
+  font-weight: 700;
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote {
+  margin: 0 0 var(--ruimte-m);
+}
+
+:where(p, ul, ol, dl, figure, blockquote):last-child {
+  margin-bottom: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.4em;
+}
+
+li + li {
+  margin-top: 0.4em;
+}
+
+strong {
+  font-weight: 700;
+}
+
+a {
+  color: var(--kleur-primair-donker);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 0.18em;
+}
+
+a,
+summary {
+  touch-action: manipulation;
+}
+
+/* Kleurovergang bij aanwijzen; geen beweging */
+a,
+summary {
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* Focus: witte binnenrand en een donkere ring van 4px */
+:focus-visible {
+  outline: 4px solid var(--kleur-focus);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--kleur-vlak);
+}
+
+/* Op blauw andersom */
+.op-blauw :focus-visible {
+  outline-color: var(--kleur-op-primair);
+  box-shadow: 0 0 0 2px var(--kleur-tekst);
+}
+
+.getal {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Iconen ---------- */
+
+.icoon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+/* Icoon in een rondje (bij kaarten en feiten) */
+.icoon-rond {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--kleur-zacht);
+  color: var(--kleur-primair);
+}
+
+.icoon-rond .icoon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* ---------- Opbouw ---------- */
+
+.wrap {
+  width: min(100% - 2rem, var(--breedte));
+  margin-inline: auto;
+}
+
+.tekstkolom {
+  max-width: var(--breedte-tekst);
+}
+
+.naar-inhoud {
+  position: absolute;
+  top: -10rem;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  border-radius: var(--rond-s);
+  background: var(--kleur-vlak);
+  font-weight: 700;
+}
+
+.naar-inhoud:focus {
+  top: 1rem;
+}
+
+/* ---------- Belbalk en kop ---------- */
+
+.belbalk {
+  background: var(--kleur-tekst);
+  color: var(--kleur-op-primair);
+}
+
+.belbalk p {
+  margin: 0;
+  text-align: center;
+}
+
+.belbalk a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ruimte-s);
+  min-height: 3rem;
+  padding: 0.5rem 1rem;
+  color: var(--kleur-op-primair);
+  font-size: var(--tekst-klein);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.belbalk a:hover {
+  text-decoration: underline;
+}
+
+.kop {
+  border-bottom: 2px solid var(--kleur-rand);
+  background: var(--kleur-vlak);
+}
+
+.kop-binnen {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ruimte-m);
+  padding-block: var(--ruimte-m);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.875rem;
+  color: var(--kleur-tekst);
+  text-decoration: none;
+}
+
+.logo img {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.logo-tekst {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-naam {
+  color: var(--kleur-primair-donker);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.logo-plaats {
+  color: var(--kleur-primair);
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+}
+
+.menu {
+  flex: 1 1 100%;
+}
+
+.menu ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ruimte-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu li + li {
+  margin-top: 0;
+}
+
+.menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  min-height: 3.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--kleur-primair);
+  border-radius: var(--rond-s);
+  background: var(--kleur-vlak);
+  color: var(--kleur-primair-donker);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: var(--kleur-zacht);
+}
+
+.menu a:active {
+  background: var(--kleur-rand);
+}
+
+.menu a[aria-current="page"] {
+  background: var(--kleur-primair);
+  color: var(--kleur-op-primair);
+}
+
+@media (min-width: 48em) {
+  .logo img {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .menu ul {
+    grid-template-columns: repeat(4, auto);
+    justify-content: start;
+  }
+}
+
+@media (min-width: 64em) {
+  .menu {
+    flex: 0 1 auto;
+  }
+}
+
+/* ---------- Kop van de homepage (held) ---------- */
+
+.held {
+  padding-block: var(--ruimte-xl);
+  background: var(--kleur-zacht);
+}
+
+.held-raster {
+  display: grid;
+  gap: var(--ruimte-xl);
+  align-items: center;
+}
+
+.held h1 {
+  max-width: 15ch;
+  color: var(--kleur-tekst);
+}
+
+.inleiding {
+  max-width: 36rem;
+  font-size: var(--tekst-groot);
+}
+
+.mail-regel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--ruimte-s);
+}
+
+.mail-regel .icoon {
+  color: var(--kleur-primair);
+}
+
+.mail-regel a {
+  display: inline-block;
+  padding-block: 0.5rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.held-foto {
+  position: relative;
+  margin: 0;
+}
+
+.held-foto picture img {
+  width: 100%;
+  border: 4px solid var(--kleur-vlak);
+  border-radius: var(--rond-l);
+}
+
+.held-foto figcaption {
+  margin-top: var(--ruimte-s);
+  color: var(--kleur-tekst-zacht);
+  font-size: var(--tekst-klein);
+}
+
+/* Het logo als sticker op de hoek van de foto (alleen brede schermen) */
+.held-sticker {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .held {
+    padding-block: var(--ruimte-2xl);
+  }
+
+  .held-raster {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+
+  .held-sticker {
+    position: absolute;
+    bottom: 2.5rem;
+    left: -3.5rem;
+    display: block;
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+/* ---------- Kop van de andere pagina's ---------- */
+
+.paginakop {
+  padding-block: var(--ruimte-xl);
+  border-bottom: 2px solid var(--kleur-rand);
+  background: var(--kleur-zacht);
+}
+
+.paginakop h1 {
+  max-width: 20ch;
+  color: var(--kleur-tekst);
+}
+
+.paginakop .inleiding {
+  margin-bottom: 0;
+}
+
+/* ---------- Belknop (koraal) ---------- */
+
+.actie {
+  margin-block: var(--ruimte-m);
+}
+
+.knop-bel {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 4.25rem;
+  padding: 0.875rem 1.75rem 0.875rem 1.25rem;
+  border: 3px solid var(--kleur-tekst);
+  border-radius: 999px;
+  background: var(--kleur-cta);
+  color: var(--kleur-op-cta);
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+
+.knop-bel:hover {
+  background: var(--kleur-cta-hover);
+}
+
+.knop-bel:active {
+  background: var(--kleur-vlak);
+}
+
+.knop-bel .icoon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.knop-bel-tekst,
+.knop-bel-nummer {
+  display: block;
+}
+
+/* 24px: telt als grote tekst, zodat het contrast op koraal aan AAA voldoet */
+.knop-bel-nummer {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.op-blauw .knop-bel {
+  border-color: var(--kleur-op-primair);
+}
+
+/* ---------- Secties ---------- */
+
+.sectie {
+  padding-block: var(--ruimte-xl);
+}
+
+.sectie-wit {
+  border-block: 2px solid var(--kleur-rand);
+  background: var(--kleur-vlak);
+}
+
+@media (min-width: 64em) {
+  .sectie {
+    padding-block: var(--ruimte-2xl);
+  }
+}
+
+.sectie-kop {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-m);
+  margin-bottom: var(--ruimte-m);
+}
+
+.sectie-kop h2 {
+  margin: 0;
+}
+
+.sectie h3 {
+  margin-top: var(--ruimte-l);
+}
+
+.sectie h2 + h3,
+.sectie h3:first-child {
+  margin-top: 0;
+}
+
+/* Telefoonnummer nooit over twee regels breken */
+.nummer,
+.knop-bel-nummer,
+.voet-contact a {
+  white-space: nowrap;
+}
+
+/* Losse links krijgen genoeg hoogte om aan te tikken */
+.losse-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ruimte-s);
+  min-height: 3rem;
+  font-weight: 700;
+}
+
+.losse-link .icoon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---------- Actueel ---------- */
+
+.actueel {
+  padding-top: var(--ruimte-xl);
+}
+
+.actueel-bericht {
+  display: flex;
+  gap: var(--ruimte-m);
+  align-items: flex-start;
+  max-width: var(--breedte-tekst);
+  padding: var(--ruimte-m);
+  border: 2px solid var(--kleur-let-op);
+  border-left-width: 0.5rem;
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.actueel-bericht .icoon-rond {
+  background: var(--kleur-let-op-zacht);
+  color: var(--kleur-let-op);
+}
+
+.actueel-bericht h2 {
+  margin-bottom: var(--ruimte-xs);
+  font-size: var(--kop-3);
+}
+
+/* ---------- Feiten op een rij ---------- */
+
+.feiten {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feiten li {
+  display: flex;
+  gap: var(--ruimte-m);
+  align-items: flex-start;
+  margin: 0;
+}
+
+.feiten strong {
+  display: block;
+  color: var(--kleur-primair-donker);
+  font-size: var(--tekst-groot);
+  line-height: 1.3;
+}
+
+@media (min-width: 48em) {
+  .feiten {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--ruimte-l);
+  }
+}
+
+@media (min-width: 64em) {
+  .feiten {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .feiten li {
+    flex-direction: column;
+    gap: var(--ruimte-s);
+  }
+}
+
+/* ---------- Kaarten ---------- */
+
+.kaarten {
+  display: grid;
+  gap: var(--ruimte-m);
+}
+
+@media (min-width: 48em) {
+  .kaarten {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.kaart {
+  padding: var(--ruimte-m);
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.kaart-kop {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-m);
+  margin-bottom: var(--ruimte-m);
+}
+
+.kaart-kop h3 {
+  margin: 0;
+}
+
+.kaart-let-op {
+  border-color: var(--kleur-let-op);
+}
+
+.kaart-let-op .icoon-rond {
+  background: var(--kleur-let-op-zacht);
+  color: var(--kleur-let-op);
+}
+
+/* ---------- Lestijden ---------- */
+
+.lestijden {
+  display: grid;
+  gap: var(--ruimte-s);
+  margin: 0 0 var(--ruimte-m);
+}
+
+.lestijden > div {
+  display: grid;
+  gap: 0 var(--ruimte-m);
+  padding-block: var(--ruimte-s);
+  border-bottom: 2px solid var(--kleur-zacht);
+}
+
+.lestijden dt {
+  color: var(--kleur-primair-donker);
+  font-weight: 700;
+}
+
+.lestijden dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 30em) {
+  .lestijden > div {
+    grid-template-columns: 7.5rem 1fr;
+  }
+
+  .lestijden dd {
+    grid-column: 2;
+  }
+
+  .lestijden dt {
+    grid-row: span 3;
+  }
+}
+
+.label {
+  display: inline-block;
+  margin-left: var(--ruimte-s);
+  padding: 0 0.6rem;
+  border-radius: 0.375rem;
+  background: var(--kleur-let-op);
+  color: var(--kleur-op-primair);
+  font-size: var(--tekst-klein);
+  font-weight: 700;
+  vertical-align: 0.1em;
+}
+
+/* Grote lestijden-lijst op de lessenpagina */
+.lestijden-groot > div {
+  padding: var(--ruimte-m);
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.lestijden-groot .stoelgym {
+  border-color: var(--kleur-let-op);
+}
+
+/* ---------- Prijs ---------- */
+
+.prijs {
+  margin-bottom: var(--ruimte-s);
+  color: var(--kleur-tekst);
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.prijs span {
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+}
+
+/* ---------- Stappen (genummerd, het is een volgorde) ---------- */
+
+.stappen {
+  padding: 0;
+  list-style: none;
+  counter-reset: stap;
+}
+
+.stappen li {
+  position: relative;
+  min-height: 3.25rem;
+  padding-left: 4.5rem;
+  counter-increment: stap;
+}
+
+.stappen li + li {
+  margin-top: var(--ruimte-m);
+}
+
+.stappen li::before {
+  content: counter(stap);
+  position: absolute;
+  top: -0.25rem;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--kleur-primair);
+  color: var(--kleur-op-primair);
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+}
+
+.stappen strong {
+  display: block;
+  color: var(--kleur-primair-donker);
+  font-size: var(--tekst-groot);
+}
+
+/* ---------- Rooster ---------- */
+
+.rooster {
+  margin: 0 0 var(--ruimte-m);
+  padding: 0;
+  list-style: none;
+}
+
+.rooster li {
+  display: flex;
+  gap: var(--ruimte-m);
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--ruimte-m);
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.rooster li + li {
+  margin-top: var(--ruimte-s);
+}
+
+.rooster .icoon {
+  margin-top: 0.15rem;
+  color: var(--kleur-primair);
+}
+
+.rooster strong {
+  display: block;
+}
+
+.rooster .geen-les {
+  border-color: var(--kleur-let-op);
+  background: var(--kleur-let-op-zacht);
+}
+
+.rooster .geen-les .icoon {
+  color: var(--kleur-let-op);
+}
+
+/* ---------- Motto ---------- */
+
+.motto {
+  margin-block: var(--ruimte-l);
+  padding: var(--ruimte-m);
+  border-left: 0.5rem solid var(--kleur-primair);
+  border-radius: 0 var(--rond-m) var(--rond-m) 0;
+  background: var(--kleur-zacht);
+}
+
+.motto blockquote {
+  margin: 0 0 var(--ruimte-xs);
+  color: var(--kleur-primair-donker);
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.motto blockquote p {
+  margin: 0;
+}
+
+.motto figcaption {
+  color: var(--kleur-tekst-zacht);
+  font-size: var(--tekst-klein);
+}
+
+/* ---------- Foto's ---------- */
+
+.foto img {
+  width: 100%;
+  border-radius: var(--rond-l);
+}
+
+.foto figcaption {
+  margin-top: var(--ruimte-s);
+  color: var(--kleur-tekst-zacht);
+  font-size: var(--tekst-klein);
+}
+
+.sectie .foto {
+  margin-block: var(--ruimte-l);
+}
+
+/* ---------- Feitenlijst met iconen (stoelgym) ---------- */
+
+.feitenlijst {
+  display: grid;
+  gap: var(--ruimte-m);
+  margin: 0 0 var(--ruimte-m);
+  padding: var(--ruimte-m);
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.feitenlijst > div {
+  display: grid;
+  gap: var(--ruimte-xs);
+}
+
+.feitenlijst dt {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-s);
+  color: var(--kleur-primair-donker);
+  font-weight: 700;
+}
+
+.feitenlijst dt .icoon {
+  color: var(--kleur-primair);
+}
+
+.feitenlijst dd {
+  margin: 0;
+  padding-left: 2rem;
+}
+
+/* ---------- Tegels (grote links met icoon) ---------- */
+
+.tegels {
+  display: grid;
+  gap: var(--ruimte-s);
+  margin: 0 0 var(--ruimte-m);
+  padding: 0;
+  list-style: none;
+}
+
+.tegels li + li {
+  margin-top: 0;
+}
+
+@media (min-width: 48em) {
+  .tegels {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--ruimte-m);
+  }
+}
+
+.tegel {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-m);
+  min-height: 4.5rem;
+  height: 100%;
+  padding: var(--ruimte-s) var(--ruimte-m);
+  border: 2px solid var(--kleur-primair);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+  color: var(--kleur-primair-donker);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.tegel:hover {
+  background: var(--kleur-zacht);
+}
+
+.tegel:active {
+  background: var(--kleur-rand);
+}
+
+.tegel .icoon-pijl {
+  margin-left: auto;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* ---------- Contactkaart ---------- */
+
+.contactkaart {
+  padding: var(--ruimte-m);
+  border: 3px solid var(--kleur-primair);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.contactkaart .naam {
+  margin-bottom: 0;
+  color: var(--kleur-primair-donker);
+  font-size: var(--kop-3);
+  font-weight: 700;
+}
+
+/* ---------- Veelgestelde vragen (openklappen) ---------- */
+
+.vragen details {
+  border: 2px solid var(--kleur-rand);
+  border-radius: var(--rond-m);
+  background: var(--kleur-vlak);
+}
+
+.vragen details + details {
+  margin-top: var(--ruimte-s);
+}
+
+.vragen details[open] {
+  border-color: var(--kleur-primair);
+}
+
+.vragen summary {
+  display: flex;
+  align-items: center;
+  gap: var(--ruimte-m);
+  min-height: 3.75rem;
+  padding: var(--ruimte-s) var(--ruimte-m);
+  border-radius: calc(var(--rond-m) - 2px);
+  color: var(--kleur-primair-donker);
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.vragen summary::-webkit-details-marker {
+  display: none;
+}
+
+.vragen summary:hover {
+  background: var(--kleur-zacht);
+}
+
+.vragen summary .icoon {
+  margin-left: auto;
+  color: var(--kleur-primair);
+}
+
+.vragen .icoon-min,
+.vragen details[open] .icoon-plus {
+  display: none;
+}
+
+.vragen details[open] .icoon-min {
+  display: block;
+}
+
+.vragen .antwoord {
+  padding: 0 var(--ruimte-m) var(--ruimte-m);
+}
+
+/* ---------- Blauwe band onderaan (bellen) ---------- */
+
+.bel-blok {
+  padding-block: var(--ruimte-xl);
+  background: var(--kleur-primair);
+  color: var(--kleur-op-primair);
+}
+
+.bel-blok h2 {
+  color: var(--kleur-op-primair);
+}
+
+.bel-blok a:not(.knop-bel) {
+  color: var(--kleur-op-primair);
+}
+
+.bel-blok .mail-regel .icoon {
+  color: var(--kleur-op-primair);
+}
+
+@media (min-width: 64em) {
+  .bel-blok {
+    padding-block: var(--ruimte-2xl);
+  }
+
+  .bel-binnen {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--ruimte-xl);
+    align-items: center;
+  }
+}
+
+.bel-logo {
+  display: none;
+}
+
+@media (min-width: 64em) {
+  .bel-logo {
+    display: block;
+    width: 12rem;
+    height: 12rem;
+  }
+}
+
+/* ---------- Voettekst ---------- */
+
+.voet {
+  padding-block: var(--ruimte-xl);
+  background: var(--kleur-voet);
+  color: var(--kleur-op-primair);
+}
+
+.voet a {
+  color: var(--kleur-op-primair);
+}
+
+.voet-raster {
+  display: grid;
+  gap: var(--ruimte-l);
+}
+
+@media (min-width: 48em) {
+  .voet-raster {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+.voet address {
+  font-style: normal;
+}
+
+.voet-naam {
+  margin-bottom: var(--ruimte-xs);
+  font-size: var(--tekst-groot);
+  font-weight: 700;
+}
+
+.voet ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.voet li + li {
+  margin-top: 0;
+}
+
+.voet-contact li {
+  display: flex;
+  gap: var(--ruimte-s);
+  align-items: flex-start;
+}
+
+.voet-contact .icoon {
+  margin-top: 0.6rem;
+}
+
+.voet-contact a,
+.voet-menu a {
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+.voet h2 {
+  margin-bottom: var(--ruimte-s);
+  color: var(--kleur-op-primair);
+  font-size: var(--tekst-groot);
+}
+
+/* ---------- Toegankelijkheid ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hoog-contrastmodus van Windows */
+@media (forced-colors: active) {
+  .knop-bel,
+  .menu a,
+  .tegel,
+  .vragen details {
+    border: 3px solid ButtonText;
+  }
+
+  .icoon {
+    fill: CanvasText;
+  }
+}
+
+/* ---------- Afdrukken (bijv. het rooster) ---------- */
+
+@media print {
+  .naar-inhoud,
+  .belbalk,
+  .menu,
+  .held-foto,
+  .bel-blok {
+    display: none;
+  }
+
+  body,
+  .held,
+  .paginakop,
+  .sectie-wit {
+    background: none;
+    color: #000;
+  }
+
+  h1,
+  h2,
+  h3,
+  a {
+    color: #000;
+  }
+
+  body {
+    font-size: 12pt;
+  }
+
+  .sectie {
+    padding-block: 1rem;
+  }
+
+  .vragen details {
+    border: 0;
+  }
+}
