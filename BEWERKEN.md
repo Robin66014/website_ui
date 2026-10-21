@@ -125,6 +125,8 @@ Het adres is: **Klipperstraat 3, 5301 TR Zaltbommel**. Verhuist de les naar een 
 Pas ook de Google Maps-links aan (`index.html` en `contact.html`). Daar staat het adres zo:
 `query=Klipperstraat+3%2C+5301+TR+Zaltbommel`. Gebruik een `+` in plaats van een spatie en `%2C` in plaats van een komma.
 
+De dorpen in de streek worden genoemd op `index.html` (kaart "Waar is de les?"), op `contact.html` (kopje "Vanuit de dorpen"), op `stoelgym.html`, in de voettekst ("Zaltbommel en de Bommelerwaard") en in de **gegevens voor Google** in `index.html` (`"areaServed"`).
+
 ### Facebook
 
 De link naar de Facebookpagina is `https://www.facebook.com/profile.php?id=61579033208338`. Een nieuwe link? Zoek op deze link en vervang hem. Hij staat in de voettekst (alle pagina's), op `contact.html` en in de **gegevens voor Google** in `index.html` (`"sameAs"`).
