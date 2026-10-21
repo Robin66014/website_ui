@@ -115,20 +115,19 @@ Zoek op `Johan van der Meijden`. De naam staat in de voettekst, in de blokken on
 
 ### Adres van de sportzaal
 
-Zoek op `[HUISNUMMER INVULLEN]` en `[POSTCODE INVULLEN]` en vul het echte huisnummer en de postcode in. Het adres staat hier:
+Het adres is: **Klipperstraat 3, 5301 TR Zaltbommel**. Verhuist de les naar een andere zaal? Zoek dan op `Klipperstraat 3` en `5301 TR` en pas het overal aan. Het adres staat hier:
 
 - voettekst: alle vijf de `.html`-bestanden
 - `index.html`: blok `BEWERKEN: adres` en de **gegevens voor Google** bovenin (`streetAddress` en `postalCode`)
 - `stoelgym.html`: blok `BEWERKEN: tijd, adres en kosten`
 - `contact.html`: blok `BEWERKEN: adres en route`
 
-Zet het huisnummer ook in de Google Maps-links (`index.html` en `contact.html`). Verander daar
-`query=Klipperstraat%2C+Zaltbommel` in bijvoorbeeld `query=Klipperstraat+12%2C+Zaltbommel`.
-Gebruik een `+` in plaats van een spatie.
+Pas ook de Google Maps-links aan (`index.html` en `contact.html`). Daar staat het adres zo:
+`query=Klipperstraat+3%2C+5301+TR+Zaltbommel`. Gebruik een `+` in plaats van een spatie en `%2C` in plaats van een komma.
 
 ### Facebook
 
-Zoek op `https://www.facebook.com/INVULLEN` en vervang dit door het echte adres van de Facebookpagina. Het staat in de voettekst (alle pagina's), op `contact.html` en in de **gegevens voor Google** in `index.html` (`"sameAs"`).
+De link naar de Facebookpagina is `https://www.facebook.com/profile.php?id=61579033208338`. Een nieuwe link? Zoek op deze link en vervang hem. Hij staat in de voettekst (alle pagina's), op `contact.html` en in de **gegevens voor Google** in `index.html` (`"sameAs"`).
 
 ## Contributie veranderen
 
