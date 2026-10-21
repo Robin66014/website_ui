@@ -1,6 +1,6 @@
 # De website zelf aanpassen
 
-Deze handleiding legt uit hoe u de website van Senioren Actief Zaltbommel aanpast (ontwerp 2, met iconen). U hoeft niet te kunnen programmeren. U werkt in de webeditor van GitHub, in uw browser.
+Deze handleiding legt uit hoe u de website van Senioren Actief Zaltbommel aanpast. U hoeft niet te kunnen programmeren. U werkt in de webeditor van GitHub, in uw browser.
 
 ## Zo past u een bestand aan
 

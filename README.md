@@ -1,4 +1,4 @@
-# Website Senioren Actief Zaltbommel (ontwerp 2)
+# Website Senioren Actief Zaltbommel
 
 De website van sportvereniging Senioren Actief Zaltbommel (50+Actief): gym voor senioren in Zaltbommel.
 Komt te staan op **https://www.seniorenactiefzaltbommel.nl**.
@@ -7,9 +7,9 @@ Komt te staan op **https://www.seniorenactiefzaltbommel.nl**.
 - Geen cookies, tracking of ingesloten kaarten, dus geen cookiebanner nodig.
 - Teksten, rooster of contactgegevens aanpassen? Zie **[BEWERKEN.md](BEWERKEN.md)**.
 
-## Over dit ontwerp
+## Over het ontwerp
 
-Dit is het tweede ontwerp, gemaakt met de UI/UX Pro Max-richtlijnen voor een toegankelijke site ("Accessible & Ethical", patroon "Trust & Authority + Conversion"):
+Het ontwerp is gemaakt met de UI/UX Pro Max-richtlijnen voor een toegankelijke site ("Accessible & Ethical", patroon "Trust & Authority + Conversion"):
 
 - kleuren uit het logo, alle gewone tekst met een contrast van 7:1 of hoger;
 - lettertype Atkinson Hyperlegible Next, zelf gehost;
@@ -32,23 +32,12 @@ De keuzes staan in `design-system/senioren-actief-zaltbommel/MASTER.md` in de pr
 | `img/` | Foto's, logo, pictogrammen en `iconen.svg` (alle iconen in één bestand) |
 | `fonts/` | Lettertype Atkinson Hyperlegible Next (vrije licentie, zie `fonts/OFL.txt`) |
 | `sitemap.xml`, `robots.txt` | Voor zoekmachines |
+| `CNAME` | Het eigen webadres voor GitHub Pages |
 | `.nojekyll` | Zegt tegen GitHub dat de bestanden niet bewerkt hoeven te worden |
 
-## Bekijken en kiezen
+## De site online zetten met GitHub Pages
 
-Deze repository (`Robin66014/website_ui`) heeft bewust **geen** `CNAME`-bestand. Een eigen domein kan maar aan één GitHub Pages-site tegelijk gekoppeld zijn, en ontwerp 1 staat in `Robin66014/website`.
-
-Dit ontwerp bekijken zonder eigen domein:
-
-1. Ga naar **Settings** en dan **Pages** in deze repository.
-2. Kies bij **Source** voor **Deploy from a branch**, branch `main`, map `/ (root)`, en klik op **Save**.
-3. Na een paar minuten staat de site op **https://robin66014.github.io/website_ui/**. Alleen de pagina "Deze pagina bestaat niet" ziet er daar nog niet goed uit; op het eigen domein wel.
-
-**Kiest u voor dit ontwerp?** Haal dan bij `Robin66014/website` het eigen domein weg (Settings, Pages, Custom domain leegmaken, of het bestand `CNAME` verwijderen). Maak daarna hier een bestand `CNAME` aan met als enige regel `www.seniorenactiefzaltbommel.nl` en volg de stappen hieronder.
-
-## De site online zetten op het eigen domein
-
-Daarvoor zijn drie stappen nodig.
+De bestanden staan in de repository `Robin66014/website_ui`. Daarna zijn er nog drie stappen.
 
 ### 1. GitHub Pages aanzetten
 
@@ -56,7 +45,7 @@ Daarvoor zijn drie stappen nodig.
 2. Klik links op **Pages**.
 3. Kies bij **Build and deployment**, onder **Source**, voor **Deploy from a branch**.
 4. Kies bij **Branch** voor `main` en de map `/ (root)`. Klik op **Save**.
-5. Typ bij **Custom domain** `www.seniorenactiefzaltbommel.nl` en klik op **Save** (of maak het bestand `CNAME` aan, zie hierboven).
+5. Bij **Custom domain** staat dan `www.seniorenactiefzaltbommel.nl`, uit het bestand `CNAME`. Staat het er niet? Typ het zelf in en klik op **Save**.
 
 De site staat nu klaar. Hij is pas te zien op het eigen adres als de DNS (stap 2) goed staat.
 
