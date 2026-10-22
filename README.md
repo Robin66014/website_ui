@@ -32,6 +32,7 @@ De keuzes staan in `design-system/senioren-actief-zaltbommel/MASTER.md` in de pr
 | `img/` | Foto's, logo, pictogrammen en `iconen.svg` (alle iconen in één bestand) |
 | `fonts/` | Lettertype Atkinson Hyperlegible Next (vrije licentie, zie `fonts/OFL.txt`) |
 | `sitemap.xml`, `robots.txt` | Voor zoekmachines |
+| `favicon.ico`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png`, `site.webmanifest` | Het logo als pictogram in het tabblad, bij bladwijzers en op het beginscherm van telefoons |
 | `CNAME` | Het eigen webadres voor GitHub Pages |
 | `.nojekyll` | Zegt tegen GitHub dat de bestanden niet bewerkt hoeven te worden |
 
